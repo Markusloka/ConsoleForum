@@ -1,4 +1,3 @@
-Sure, here is the same README file in HTML format:
 
 <h1>Console Forum Application</h1>
 

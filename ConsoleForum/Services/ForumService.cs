@@ -33,6 +33,27 @@ namespace ConsoleForum.Services
             return forumEntity;
         }
 
+        public ForumEntity GetForumEntityById(int id)
+        {
+            var forumEntity = _forumRepository.Get(x => x.Id == id);
+            return forumEntity;
+        }
 
+        public IEnumerable<ForumEntity> GetForums() {
+        
+        var forums = _forumRepository.GetAll();
+            return forums;
+        }
+
+        public ForumEntity UpdateForum(ForumEntity forumEntity)
+        {
+            var updatedForumEntity = _forumRepository.Update(x => x.Id == forumEntity.Id, forumEntity);
+            return updatedForumEntity;
+        }
+
+        public void DeleteForum (int id)
+        {
+            _forumRepository.Delete(x => x.Id == id);
+        }
     }
 }

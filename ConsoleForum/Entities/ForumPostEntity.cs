@@ -14,7 +14,7 @@ namespace ConsoleForum.Entities
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
 
-        public int CategoryId { get; set; }
+        public string CategoryName { get; set; } = null!;
         public ForumEntity Category { get; set; } = null!;
     }
 }

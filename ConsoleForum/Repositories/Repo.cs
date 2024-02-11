@@ -1,4 +1,6 @@
 ﻿using ConsoleForum.Contexts;
+using ConsoleForum.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,11 @@ namespace ConsoleForum.Repositories
             _contexts = contexts;
         }
 
+        public List<UserInfoEntity> GetMany(Expression<Func<UserInfoEntity, bool>> predicate)
+        {
+            // Implement logic to retrieve multiple UserInfoEntity objects based on the predicate
+            return _contexts.Users.Where(predicate).ToList();
+        }
 
 
         public TEntity Create(TEntity entity)

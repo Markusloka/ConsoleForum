@@ -15,8 +15,7 @@ namespace ConsoleForum.Entities
         public string LastName { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Plattforms { get; set; } = null!;
-
+        public string FullName { get; set; } = null!;
         public int UserNameId { get; set; }
-        public UsersEntity User { get; set; } = null!;
     }
 }

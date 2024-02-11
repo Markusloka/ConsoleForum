@@ -14,6 +14,10 @@ namespace ConsoleForum.Entities
         public string UserName { get; set; } = null!;
         
         public int RoleId { get; set; }
+
+        public string Fullname { get; set; } = null!;
         public RoleEntity Role { get; set; } = null!;
+
+        public UserInfoEntity UserInfo { get; set; } = null!;
     }
 }

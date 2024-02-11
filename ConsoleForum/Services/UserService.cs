@@ -1,5 +1,6 @@
 ﻿using ConsoleForum.Entities;
 using ConsoleForum.Repositories;
+using ConsoleForum.Services;
 using ConsoleRole.Services;
 using System;
 using System.Collections.Generic;
@@ -12,22 +13,37 @@ namespace ConsoleUsers.Services
     internal class UserService
     {
         private readonly UserRepository _userRepository;
-        private readonly RoleService _roleService;
+        private readonly UserInfoService _userInfoService;
 
-        public UserService(UserRepository userRepository, RoleService roleService)
+        public UserService(UserRepository userRepository, UserInfoService userInfoService)
         {
             _userRepository = userRepository;
-            _roleService = roleService;
+            _userInfoService = userInfoService;
         }
 
-        public UsersEntity CreateUsers(string userName)
+
+
+
+
+
+        public UsersEntity CreateUser(string userName, string firstName, string lastname, string email )
         {
             var UsersEntity = _userRepository.Get(x => x.UserName == userName);
 
-            UsersEntity ??= _userRepository.Create(new UsersEntity { UserName = userName });
+            var userEntity = new UsersEntity
+            {
+               UserName = userName,
+               FirstName = UserInfoEntity.Firstname,
+            };
 
-            return UsersEntity;
+            userEntity = _userRepository.Create(userEntity); return userEntity;
         }
+
+
+
+
+
+
 
         public UsersEntity GetUsersByCategoryName(string userName)
         {
